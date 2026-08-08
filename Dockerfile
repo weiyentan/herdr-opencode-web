@@ -1,5 +1,5 @@
 # ---- Builder stage ----
-FROM registry.access.redhat.com/ubi9/ubi-minimal:9.4 AS builder
+FROM registry.access.redhat.com/ubi9/ubi-minimal:9.8 AS builder
 
 RUN microdnf install -y \
         bash \
@@ -38,7 +38,7 @@ RUN case "${TARGETARCH}" in \
     && chmod 0755 /usr/local/bin/ttyd
 
 # ---- Runtime stage ----
-FROM registry.access.redhat.com/ubi9/ubi-minimal:9.4
+FROM registry.access.redhat.com/ubi9/ubi-minimal:9.8
 
 ARG USERNAME=developer
 ARG USER_UID=1000
