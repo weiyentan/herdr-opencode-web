@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/herdr-opencode-web
+  IMAGE: ${{ secrets.DOCKERHUB_USERNAME || 'weiyentan2' }}/herdr-opencode-web
 
 concurrency:
   group: docker-build-${{ github.ref }}
