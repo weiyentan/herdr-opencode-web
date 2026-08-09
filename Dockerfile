@@ -4,7 +4,6 @@ FROM registry.access.redhat.com/ubi9/ubi-minimal:9.8 AS builder
 RUN microdnf install -y \
         bash \
         ca-certificates \
-        curl \
         tar \
         gzip \
         unzip \
