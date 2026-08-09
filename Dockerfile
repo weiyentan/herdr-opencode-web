@@ -14,8 +14,7 @@ ARG TARGETARCH
 
 # Install OpenCode
 RUN mkdir -p /opt/opencode \
-    && HOME=/opt/opencode \
-       curl -fsSL https://opencode.ai/install | bash \
+    && curl -fsSL https://opencode.ai/install | HOME=/opt/opencode bash \
     && cp /opt/opencode/.opencode/bin/opencode /usr/local/bin/opencode \
     && chmod 0755 /usr/local/bin/opencode
 
