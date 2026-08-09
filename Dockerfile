@@ -4,7 +4,6 @@ FROM registry.access.redhat.com/ubi9/ubi-minimal:9.8 AS builder
 RUN microdnf install -y \
         bash \
         ca-certificates \
-        curl \
         tar \
         gzip \
         unzip \
@@ -15,8 +14,7 @@ ARG TARGETARCH
 
 # Install OpenCode
 RUN mkdir -p /opt/opencode \
-    && HOME=/opt/opencode \
-       curl -fsSL https://opencode.ai/install | bash \
+    && curl -fsSL https://opencode.ai/install | HOME=/opt/opencode bash \
     && cp /opt/opencode/.opencode/bin/opencode /usr/local/bin/opencode \
     && chmod 0755 /usr/local/bin/opencode
 
